@@ -11,7 +11,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-Grey-50 dark:bg-Blue-900">
+    <header className="bg-Grey-50 dark:bg-Blue-900 shadow-md">
       <div className="flex justify-between items-center py-8 px-4 md:py-4 md:px-0 md:mx-auto md:max-w-6xl ">
         <p className="font-Nunito font-extrabold text-Grey-950 dark:text-white">Where in the world?</p>
         <div>

@@ -14,7 +14,7 @@ const Countries = () => {
   }, []);
 
   return (
-    <div>
+    <div className="">
       {countries.map((country) => {
         return (
           <Country
