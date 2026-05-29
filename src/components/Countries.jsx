@@ -5,7 +5,9 @@ const Countries = () => {
   const [countries, setCountries] = useState([]);
 
   useEffect(() => {
-    fetch("https://restcountries.com/v3.1/all?fields=flags,name,capital,population,region,capital")
+    fetch(
+      "https://restcountries.com/v3.1/all?fields=flags,name,capital,population,region,capital",
+    )
       .then((res) => res.json())
       .then((cont) => setCountries(cont))
       .catch((err) => console.error(err));
