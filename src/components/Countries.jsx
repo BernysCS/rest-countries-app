@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Country from "./Country";
+import ToolBar from "./ToolBar";
 
-const Countries = () => {
+const Countries = ({region, onRegionChange}) => {
   const [countries, setCountries] = useState([]);
 
   useEffect(() => {
@@ -13,21 +14,24 @@ const Countries = () => {
       .catch((err) => console.error(err));
   }, []);
 
+  const filteredCountries = region
+    ? countries.filter((c) => c.region === region)
+    : countries;
+
   return (
-    <div className="">
-      {countries.map((country) => {
-        return (
-          <Country
-            key={country.name.common}
-            flag={country.flags.png}
-            altFlag={country.flags.alt || country.name.common}
-            name={country.name.common}
-            population={country.population}
-            region={country.region}
-            capital={country.capital?.[0] || "N/A"}
-          />
-        );
-      })}
+    <div className="md:mx-auto md:max-w-6xl">
+      <ToolBar onRegionChange={onRegionChange} />
+      {filteredCountries.map((country) => (
+        <Country
+          key={country.name.common}
+          flag={country.flags.png}
+          altFlag={country.flags.alt || country.name.common}
+          name={country.name.common}
+          population={country.population}
+          region={country.region}
+          capital={country.capital?.[0] || "N/A"}
+        />
+      ))}
     </div>
   );
 };

@@ -1,16 +1,15 @@
-// import reactLogo from './assets/react.svg'
-// import viteLogo from './assets/vite.svg'
-
+import { useState } from "react";
 import Countries from "./components/Countries";
 import Header from "./components/Header";
 
-// import heroImg from './assets/hero.png'
 function App() {
+  const [region, setRegion] = useState("");
+
   return (
-    <>
+    <div className="bg-Grey-50 dark:bg-Blue-950 ">
       <Header />
-      <Countries />
-    </>
+      <Countries region={region} onRegionChange={setRegion}/>
+    </div>
   );
 }
 
