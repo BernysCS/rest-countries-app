@@ -21,7 +21,7 @@ const Countries = ({ region, onRegionChange, query, setQuery }) => {
     );
 
   return (
-    <div className="md:mx-auto md:max-w-6xl">
+    <div className="md:mx-auto md:max-w-6xl p-6 md:p-0">
       <ToolBar onRegionChange={onRegionChange} setQuery={setQuery} />
       {filteredCountries.map((country) => (
         <Country

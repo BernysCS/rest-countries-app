@@ -1,14 +1,14 @@
-import React from 'react'
-import Filter from './Filter'
-import Search from './Search'
+import React from "react";
+import Filter from "./Filter";
+import Search from "./Search";
 
-const ToolBar = ({onRegionChange, setQuery}) => {
+const ToolBar = ({ onRegionChange, setQuery }) => {
   return (
-    <div>
+    <div className="md:flex md:justify-between md:my-7">
       <Search setQuery={setQuery} />
-      <Filter onRegionChange={onRegionChange}/>
+      <Filter onRegionChange={onRegionChange} />
     </div>
-  )
-} 
+  );
+};
 
-export default ToolBar
+export default ToolBar;
