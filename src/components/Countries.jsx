@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Country from "./Country";
 import ToolBar from "./ToolBar";
 
-const Countries = ({region, onRegionChange}) => {
+const Countries = ({ region, onRegionChange, query, setQuery }) => {
   const [countries, setCountries] = useState([]);
 
   useEffect(() => {
@@ -14,13 +14,15 @@ const Countries = ({region, onRegionChange}) => {
       .catch((err) => console.error(err));
   }, []);
 
-  const filteredCountries = region
-    ? countries.filter((c) => c.region === region)
-    : countries;
+  const filteredCountries = countries
+    .filter((c) => (region ? c.region === region : true))
+    .filter((c) =>
+      query ? c.name.common.toLowerCase().includes(query.toLowerCase()) : true,
+    );
 
   return (
     <div className="md:mx-auto md:max-w-6xl">
-      <ToolBar onRegionChange={onRegionChange} />
+      <ToolBar onRegionChange={onRegionChange} setQuery={setQuery} />
       {filteredCountries.map((country) => (
         <Country
           key={country.name.common}

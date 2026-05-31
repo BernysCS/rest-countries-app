@@ -2,10 +2,10 @@ import React from 'react'
 import Filter from './Filter'
 import Search from './Search'
 
-const ToolBar = ({onRegionChange}) => {
+const ToolBar = ({onRegionChange, setQuery}) => {
   return (
     <div>
-      <Search/>
+      <Search setQuery={setQuery} />
       <Filter onRegionChange={onRegionChange}/>
     </div>
   )
