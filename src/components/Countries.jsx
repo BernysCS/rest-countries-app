@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Country from "./Country";
-import ToolBar from "./ToolBar";
 
-const Countries = ({ region, onRegionChange, query, setQuery }) => {
+
+const Countries = ({ region, query}) => {
   const [countries, setCountries] = useState([]);
 
   useEffect(() => {
@@ -21,8 +21,8 @@ const Countries = ({ region, onRegionChange, query, setQuery }) => {
     );
 
   return (
-    <div className="md:mx-auto md:max-w-6xl p-6 md:p-0">
-      <ToolBar onRegionChange={onRegionChange} setQuery={setQuery} />
+    <div className="grid justify-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:gap-20">
+      
       {filteredCountries.map((country) => (
         <Country
           key={country.name.common}
